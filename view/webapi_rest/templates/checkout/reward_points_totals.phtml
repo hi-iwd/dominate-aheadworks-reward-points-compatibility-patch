@@ -1,0 +1,15 @@
+<?php
+/**
+ * Template for displaying reward points in checkout totals
+ *
+ * @var \DominateAheadworksCompatibility\RewardPoints\Block\Checkout\RewardPoints $block
+ */
+?>
+<tr class="iwd-opc-review-totals__reward-points">
+    <td><?= $block->getRewardPointsTitle() ?></td>
+    <td>
+        <span class="opc-Price-amount amount">
+            <?= $block->getFormattedRewardPointsValue() ?>
+        </span>
+    </td>
+</tr>

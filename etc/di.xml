@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Override Aheadworks RewardPoints InvoiceItemsResolver -->
+    <preference for="Aheadworks\RewardPoints\Model\Calculator\Earning\EarnItemResolver\RawItemProcessor\InvoiceItemsResolver"
+                type="DominateAheadworksCompatibility\RewardPoints\Model\Calculator\Earning\EarnItemResolver\RawItemProcessor\InvoiceItemsResolver" />
+    
+    <!-- Override Aheadworks RewardPoints InvoiceRepositoryPlugin -->
+    <preference for="Aheadworks\RewardPoints\Plugin\Model\Sales\InvoiceRepositoryPlugin"
+                type="DominateAheadworksCompatibility\RewardPoints\Plugin\Model\Sales\InvoiceRepositoryPlugin" />
+    
+    <!-- Override IWD CheckoutConnector CartTotals -->
+    <preference for="IWD\CheckoutConnector\Model\Cart\CartTotals"
+                type="DominateAheadworksCompatibility\RewardPoints\Model\Cart\CartTotals" />
+                
+    <!-- Override IWD CheckoutConnector CustomDataProvider -->
+    <preference for="IWD\CheckoutConnector\Model\CustomDataProvider"
+                type="DominateAheadworksCompatibility\RewardPoints\Model\CustomDataProvider" />
+</config> 

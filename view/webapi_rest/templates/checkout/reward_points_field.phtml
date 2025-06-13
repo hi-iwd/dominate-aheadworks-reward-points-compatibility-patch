@@ -1,0 +1,35 @@
+<?php
+/**
+ * Template for reward points field in checkout
+ *
+ * @var \DominateAheadworksCompatibility\RewardPoints\Block\Checkout\RewardPoints $block
+ */
+?>
+<div class="iwd-opc-collapsible-field toggle-wrapper reward-points-wrapper <?= $block->areRewardPointsApplied() ? 'opened' : '' ?>" style="margin-top:10px">
+    <div class="iwd-opc-collapsible-field__title-wrapper js-toggle-trigger">
+        <h3 class="iwd-opc-collapsible-field__title"><?= $block->getRewardPointsTabLabelName() ?></h3>
+    </div>
+    <div class="iwd-opc-collapsible-field__form iwd-opc-discount__form toggle-block">
+        <p style="margin: 0 0 5px"><?= __('Available points: %1 (1 point = %2)', $block->getCustomerRewardPointsBalance(), $block->getFormattedConversionRate()) ?></p>
+        <div class="iwd-opc-collapsible-field__form-input-wrapper">
+            <div class="iwd-opc-collapsible-field__field iwd-opc-field">
+                <input type="text"
+                        class="iwd-opc-collapsible-field__form-input iwd-opc-input reward-points-input pac-target-input"
+                        name="reward_points_qty"
+                        id="aw-reward-points-qty"
+                        value="<?= $block->getInputFieldValue() ?>"
+                        data-max-allowed="<?= $block->getMaxAllowedRewardPointsToApply() ?>"
+                        <?= $block->areRewardPointsApplied() ? 'disabled' : '' ?>>
+                <label for="aw-reward-points-qty" class="label <?= $block->getInputFieldValue() ? 'filled' : '' ?>"><?= $block->getRewardPointsLabelName() ?></label>
+            </div>
+            <div class="iwd-opc-collapsible-field__apply-wrapper">
+                <button type="button"
+                        class="iwd-opc-btn js-reward-points-action-btn"
+                        data-action="<?= $block->getButtonAction() ?>">
+                    <span><?= $block->getButtonText() ?></span>
+                </button>
+            </div>
+        </div>
+        <div class="error-help-block reward-points-error"></div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+    "name": "iwd/dominate-aheadworks-reward-points-compatibility-patch",
+    "description": "Compatibility extension for Aheadworks RewardPoints with Dominate checkout SaaS integration",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "proprietary",
+    "require": {
+        "php": ">=7.4",
+        "magento/framework": "*",
+        "magento/module-sales": "*",
+        "magento/module-quote": "*",
+        "magento/module-directory": "*",
+        "magento/module-tax": "*",
+        "aheadworks/module-reward-points": "*",
+        "iwd/dominate-saas": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "DominateAheadworksCompatibility\\RewardPoints\\": ""
+        }
+    }
+} 
