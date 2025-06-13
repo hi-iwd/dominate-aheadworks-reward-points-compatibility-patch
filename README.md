@@ -1,4 +1,4 @@
-# DominateAheadworksCompatibility/RewardPoints Extension
+# Dominate Aheadworks RewardPoints Compatibility Patch
 
 This Magento 2 extension provides compatibility between Aheadworks RewardPoints and Dominate checkout system.
 
@@ -8,18 +8,33 @@ The extension creates a custom reward points field that integrates with the Domi
 
 ## Architecture
 
-- **Block Class**: `Block\Checkout\RewardPoints` - Main block class for reward points functionality
-- **CustomDataProvider**: `Model\CustomDataProvider` - Sends collapsible HTML input field block to iframe
-- **CartCustomDataProvider**: `Model\CartCustomDataProvider` - Sends dynamic variables and HTML block in cart totals section
-- **Totals Integration**: `Model\Cart\CartTotals` - Extends IWD CartTotals to inject custom data
+- **Block Class**: `Block/Checkout/RewardPoints` - Main block class for reward points functionality
+- **CustomDataProvider**: `Model/CustomDataProvider` - Sends collapsible HTML input field block to iframe
+- **CartCustomDataProvider**: `Model/CartCustomDataProvider` - Sends dynamic variables and HTML block in cart totals section
+- **Totals Integration**: `Model/Cart/CartTotals` - Extends IWD CartTotals to inject custom data
 - **Templates**: `view/webapi_rest/templates/checkout/` - PHTML templates for rendering reward points UI
-- **AW Extensions**: `Model\Calculator\Earning\EarnItemResolver\RawItemProcessor\InvoiceItemsResolver` & `Plugin\Model\Sales\InvoiceRepositoryPlugin` - Aheadworks compatibility
+- **AW Extensions**: `Model/Calculator/Earning/EarnItemResolver/RawItemProcessor/InvoiceItemsResolver` & `Plugin/Model/Sales/InvoiceRepositoryPlugin` - Aheadworks compatibility
 - **DI Configuration**: `etc/di.xml` - Dependency injection preferences
 - **Iframe JavaScript**: Refactored client-side code for Dominate iframe integration (see Configuration section)
 
 ## Installation
 
+### Option 1: Manual Installation
+
 1. Copy the extension files to `app/code/DominateAheadworksCompatibility/RewardPoints/`
+2. Run Magento commands:
+   ```bash
+   php bin/magento module:enable DominateAheadworksCompatibility_RewardPoints
+   php bin/magento setup:upgrade
+   php bin/magento cache:flush
+   ```
+
+### Option 2: Composer Installation
+
+1. Add the extension to your composer.json:
+   ```bash
+   composer require iwd/dominate-aheadworks-reward-points-compatibility-patch
+   ```
 2. Run Magento commands:
    ```bash
    php bin/magento module:enable DominateAheadworksCompatibility_RewardPoints
@@ -439,8 +454,7 @@ Error responses:
 ## Dependencies
 
 - Aheadworks_RewardPoints
-- Magento_Sales
-- IWD_CheckoutConnector (for integration)
+- IWD_CheckoutConnector
 
 ## File Structure
 
@@ -461,6 +475,7 @@ app/code/DominateAheadworksCompatibility/RewardPoints/
 │   └── module.xml
 ├── registration.php
 ├── composer.json
+├── LICENSE
 └── README.md
 ```
 
